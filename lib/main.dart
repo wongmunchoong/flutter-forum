@@ -188,8 +188,7 @@ class DeveloperCard extends StatelessWidget {
                 left: 0.0,
                 top: 350.0,
                 child: Container(
-                  padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                  width: MediaQuery.of(context).size.width*1,
+                  width: MediaQuery.of(context).size.width*0.9,
                   height: 100.0,
                   child: new Text(
                     "${this.title}",
