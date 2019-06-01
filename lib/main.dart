@@ -48,10 +48,6 @@ class CardList extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       physics: PageScrollPhysics(),
       children: <Widget>[
-        DeveloperCard(
-          business: 'asdasd',
-          image: '',
-        ),
         StoryCard(),
         StoryCard(),
         StoryCard(),
@@ -64,90 +60,80 @@ class StoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
-      height: 500.0,
-      width: 350.0,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8.0),
-        // the box shawdow property allows for fine tuning as aposed to shadowColor
-        boxShadow: [
-          new BoxShadow(
-              color: Color(0xFF2e2e2e),
-              // offset, the X,Y coordinates to offset the shadow
-              offset: new Offset(0.0, 8.0),
-              // blurRadius, the higher the number the more smeared look
-              blurRadius: 20.0,
-              spreadRadius: 0.5)
-        ],
-      ),
-      // child: Text("This is where your content goes")
-    );
+        margin: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
+        height: 500.0,
+        width: 350.0,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.0),
+          // the box shawdow property allows for fine tuning as aposed to shadowColor
+          boxShadow: [
+            new BoxShadow(
+                color: Color(0xFF2e2e2e),
+                // offset, the X,Y coordinates to offset the shadow
+                offset: new Offset(0.0, 8.0),
+                // blurRadius, the higher the number the more smeared look
+                blurRadius: 20.0,
+                spreadRadius: 0.5)
+          ],
+        ),
+        child: DeveloperCard(
+          image: AssetImage("assets/Background.png"),
+          name: "asd",
+        ));
   }
 }
 
 class DeveloperCard extends StatelessWidget {
   final String name;
-  final String business;
   final AssetImage image;
-  final Widget page;
 
   DeveloperCard({
     @required this.name,
-    @required this.business,
     @required this.image,
-    @required this.page,
   });
 
   @override
   Widget build(BuildContext context) {
-    navigate() {
-      final route = MaterialPageRoute(builder: (_) => this.page);
-      Navigator.of(context).push(route);
-    }
-
     return LayoutBuilder(
       builder: (context, constraints) {
         final diameter = constraints.minWidth - 84;
 
-        return Card(
-          child: GestureDetector(
-            onTap: () => navigate(),
-            child: Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Hero(
-                    tag: this.name,
-                    child: ClipOval(
-                      child: Image(
-                        fit: BoxFit.cover,
-                        height: diameter,
-                        width: diameter,
-                        image: this.image,
+        return Stack(
+          children: <Widget>[
+            new Positioned(
+                left: 0.0,
+                right: 0.0,
+                top: 0.0,
+                child: new Container(
+                  width: 500.0,
+                  height: 240.0,
+                  decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight:Radius.circular(8.0),
+                        topLeft: Radius.circular(8.0), 
+                        bottomLeft: Radius.zero, 
+                        bottomRight: Radius.zero 
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    this.name,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Text(
-                    this.business,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
+                      image: new DecorationImage(
+                          fit: BoxFit.cover, image: this.image)),
+                )),
+            Positioned(
+              left: 150.0,
+              top: 205.0,
+              child: new Container(
+                  width: 64.0,
+                  height: 64.0,
+                  decoration: new BoxDecoration(
+                      border: Border.all(
+                        width: 4,
+                        color: Color.fromARGB(255, 255, 255, 255)
+                      ),
+                      shape: BoxShape.circle,
+                      image: new DecorationImage(
+                          fit: BoxFit.fill, image: this.image))),
+            )
+          ],
         );
       },
     );
