@@ -195,7 +195,27 @@ class DeveloperCard extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18.0),
                   ),
-                ))
+                )),
+            Positioned(
+                left: 0.0,
+                bottom: 0.0,
+                child: new Container(
+                  padding: EdgeInsets.all(08.0),
+                  child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Row(children: <Widget>[
+
+                  Icon(Icons.thumbs_up_down, color: Colors.grey),
+                  Text("    123",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 14.0),)
+                      ],),
+                      Row(),
+                      Row(),
+                   ],
+                  ),
+                )),
           ],
         );
       },
