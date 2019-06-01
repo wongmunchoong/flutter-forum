@@ -181,7 +181,7 @@ class DeveloperCard extends StatelessWidget {
                   child: new Text(
                     "${this.name}   ·   5h   ·   ${this.category}",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 14.0),
+                    style: TextStyle(fontSize: 16.0),
                   ),
                 )),
             Positioned(
@@ -193,7 +193,7 @@ class DeveloperCard extends StatelessWidget {
                   child: new Text(
                     "${this.title}",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 18.0),
+                    style: TextStyle(fontSize: 24.0),
                   ),
                 )),
             Positioned(
