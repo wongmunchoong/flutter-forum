@@ -46,7 +46,6 @@ class CardList extends StatelessWidget {
     return Center(
         child: ListView(
       padding: const EdgeInsets.all(16.0),
-      physics: PageScrollPhysics(),
       children: <Widget>[
         StoryCard(
           image: NetworkImage("https://preview.redd.it/hmaajff9vl131.jpg?width=640&crop=smart&auto=webp&s=e3d2173d06b020b0191fa8583ab4d465ba6c9e20"),
@@ -62,7 +61,7 @@ class CardList extends StatelessWidget {
           category: "Article",),
         StoryCard(
           image: NetworkImage("https://preview.redd.it/ps64ci8cmi131.jpg?width=640&crop=smart&auto=webp&s=cec635d34efcf6ba8e1f87a18f979ce524e1ca47"),
-          profileImage: NetworkImage("background-image:url(https://www.redditstatic.com/avatars/avatar_default_19_FFB000.png)"),
+          profileImage: NetworkImage("https://www.redditstatic.com/avatars/avatar_default_19_FFB000.png"),
           name: "u/fibonacci666",
           title: "wokeee",
           category: "Article",),
@@ -188,8 +187,7 @@ class DeveloperCard extends StatelessWidget {
             Positioned(
                 left: 0.0,
                 top: 350.0,
-                child: new Center(
-child:new Container(
+                child: Container(
                   padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                   width: MediaQuery.of(context).size.width*1,
                   height: 100.0,
@@ -198,7 +196,7 @@ child:new Container(
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18.0),
                   ),
-                )))
+                ))
           ],
         );
       },
